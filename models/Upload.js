@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const uploadSchema = new mongoose.Schema({
   columns: [
     {
-      type: String,
+      type: Object,
     },
   ],
   data: [
     {
-      type: String,
+      type: Object,
     },
   ],
 });

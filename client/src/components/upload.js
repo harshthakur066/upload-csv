@@ -82,15 +82,6 @@ const Upload = () => {
     }
   };
 
-  const getData = async () => {
-    try {
-      const recive = await axios.get("/api/v1/upload");
-      console.log("recive", recive);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   const onSubmit = (e) => {
     e.preventDefault();
     if (columns.length === 0 && data.length === 0) {
@@ -103,6 +94,15 @@ const Upload = () => {
     };
     console.log("fileData", fileData);
     handelSubmit(fileData);
+  };
+
+  const getData = async () => {
+    try {
+      const recive = await axios.get("/api/v1/upload");
+      console.log("recive", recive);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   useEffect(() => {
