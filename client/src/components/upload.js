@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as XLSX from "xlsx";
 import DataTable from "react-data-table-component";
 import { Button } from "semantic-ui-react";
 
 import "./upload.css";
+import axios from "axios";
 
 const Upload = () => {
   const [columns, setColumns] = useState([]);
@@ -72,7 +73,40 @@ const Upload = () => {
   };
 
   //handel submit to save in database
-  const handelSubmit = async () => {};
+  const handelSubmit = async (body) => {
+    try {
+      await axios.post("/api/v1/upload", body);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const getData = async () => {
+    try {
+      const recive = await axios.get("/api/v1/upload");
+      console.log("recive", recive);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (columns.length === 0 && data.length === 0) {
+      alert("Please select a file");
+      return;
+    }
+    const fileData = {
+      columns: columns,
+      data: data,
+    };
+    console.log("fileData", fileData);
+    handelSubmit(fileData);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <div>
@@ -86,7 +120,7 @@ const Upload = () => {
             />
           </Button>
         </div>
-        <Button color="green" onClick={handelSubmit}>
+        <Button color="green" onClick={onSubmit}>
           Upload!
         </Button>
       </div>
