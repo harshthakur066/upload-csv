@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
+const uploadRoutes = require("./routes/uploadRoutes");
+
 const app = express();
 
 //CORS
@@ -17,6 +19,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
+app.use(uploadRoutes);
 
 // Mongoose Connection
 mongoose.connect(

@@ -76,6 +76,7 @@ const Upload = () => {
   const handelSubmit = async (body) => {
     try {
       await axios.post("/api/v1/upload", body);
+      alert("File Data Saved to Database!");
     } catch (err) {
       console.error(err);
     }
@@ -93,7 +94,7 @@ const Upload = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (columns.length === 0 && data.length === 0) {
-      alert("Please select a file");
+      alert("Please select a valid file");
       return;
     }
     const fileData = {
