@@ -9,13 +9,3 @@
 .head {
   text-align: center;
 }
-
-.upload {
-  margin-top: 10em;
-  display: flex;
-  justify-content: center;
-}
-
-.input {
-  margin-right: 2rem;
-}
