@@ -1,0 +1,21 @@
+.App {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.head {
+  text-align: center;
+}
+
+.upload {
+  margin-top: 10em;
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  margin-right: 2rem;
+}

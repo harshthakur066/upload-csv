@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
 import DataTable from "react-data-table-component";
+import { Button } from "semantic-ui-react";
 
-function App() {
+import "./App.css";
+
+const App = () => {
   const [columns, setColumns] = useState([]);
   const [data, setData] = useState([]);
 
@@ -69,12 +72,23 @@ function App() {
   };
 
   return (
-    <div>
-      <h3>Read CSV file in React </h3>
-      <input type="file" accept=".csv,.xlsx,.xls" onChange={handleFileUpload} />
-      <DataTable pagination highlightOnHover columns={columns} data={data} />
+    <div className="App">
+      <h2 className="head">Upload CSV </h2>
+      <div className="upload">
+        <div className="input">
+          <Button>
+            <input
+              type="file"
+              accept=".csv,.xlsx,.xls"
+              onChange={handleFileUpload}
+            />
+          </Button>
+        </div>
+        <Button color="green">Upload!</Button>
+      </div>
+      <DataTable highlightOnHover columns={columns} data={data} />
     </div>
   );
-}
+};
 
 export default App;
