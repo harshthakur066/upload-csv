@@ -4,7 +4,7 @@ import axios from "axios";
 import "./App.css";
 import Upload from "./components/upload";
 
-axios.defaults.baseURL = "http://localhost:5000/";
+axios.defaults.baseURL = "https://upload-csv-file.herokuapp.com/";
 
 function App() {
   return (
